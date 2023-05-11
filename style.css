@@ -7,6 +7,9 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: #e5eaf5;
@@ -99,6 +102,13 @@ header {
     border-radius: 10px;
     display: grid;
     animation: bounce 2s ease-in-out infinite;
+    visibility: hidden;
+    z-index: -100;
+}
+
+.show-link {
+    visibility: visible;
+    z-index: 100;
 }
 
 @keyframes bounce {
@@ -130,16 +140,22 @@ footer p {
     text-transform: capitalize;
 }
 
-/* Nav Styling Beginning 13-141 */
+/* Nav Styling Beginning */
+@media screen and (min-width: 800px) {
+    .links-container {
+        height: auto !important;
+    }
+}
+
 .nav-center {
-    background-color: #494d5f;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    color: #a0d2eb;
+    color: #d9edf7;
     text-transform: capitalize;
     margin: 0;
     max-height: 40px;
@@ -151,13 +167,12 @@ ul {
 
 a {
     text-decoration: none;
-    color: #a0d2eb;
+    color: #d9edf7;
 }
 
 .links {
     display: flex;
     margin: 0 0.5rem;
-    height: auto;
 }
 
 .links a {
@@ -173,7 +188,7 @@ a {
 }
 
 .nav-header {
-    padding: 25px 30px;
+    padding: 15px 30px;
 }
 
 .show-links {
@@ -184,6 +199,7 @@ a {
 @media screen and (max-width: 800px) {
     .nav-center {
         display: block;
+        background-color: #494d5f;
     }
 
     .nav-header {
@@ -193,7 +209,6 @@ a {
     }
 
     .links {
-        height: 0;
         margin: 0;
         padding: 0;
         display: block;
@@ -201,6 +216,12 @@ a {
         transition: all 0.3s linear;
         background-color: #a0d2eb;
         box-shadow: 0px 3px 3px 0 #494d5f;
+    }
+
+    .links-container {
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s linear;
     }
 
     .nav-toggle {
@@ -244,6 +265,19 @@ a {
         width: 100%;
         color: #a0d2eb;
     }
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #e5eaf5;
+    box-shadow: 0px 3px 3px 0 #494d5f;;
+}
+
+.fixed-nav a {
+    color: #494d5f;
 }
 /* End of Nav Styling 13-141 */
 
